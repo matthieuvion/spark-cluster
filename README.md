@@ -29,7 +29,7 @@ After Docker Engine/compose installation, on linux, do not forget the post-insta
 2. Open terminal, cd into custom directory, make sure `docker-compose.yml` file is present (copy it in if needed)  
 https://github.com/matthieuvion/spark-cluster/blob/6e5cb821a7236de94d005fce9168abe07eb306c7/docker-compose.yml#L1-L30
 
-Basically, the yml file tells Docker compose how to run the Spark Master, Worker, Jupyterlab. You will have access to your local disk/current working directory every time you run this command.
+Basically, the yml file tells Docker compose how to run the Spark Master, Worker, Jupyterlab. You will have access to your local disk/current working directory every time you run this command :
 
 3. Run docker compose
 ```
@@ -41,10 +41,13 @@ docker-compose up
 Docker compose will automatically download the needed images (spark:3.3.1 for Master and Worker, pyspark-notebook for the JupyterLab interface) and run the whole thing. The next times, it will only run them.  
 
 ### 3. Profit : JupyterLab interface, Spark cluster (standalone) mode 
+Access the different interfaces with :  
+
 Jupyter lab interface : http://localhost:8888  
 Spark Master : http://localhost:8080  
 Spark Worker : http://localhost:8081  
-You can use the demo file `spark-cluster.ipynb` for a ready to run PySpark notebook, or simply create a new one and run it using this code snippet to build the SparkSession :   
+
+You can use the demo notebook `spark-cluster.ipynb` for a ready-to-use PySpark notebook, or simply create a new one and run this as a SparkSession:     
 
 ```
 from pyspark.sql import SparkSession
