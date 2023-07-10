@@ -27,15 +27,18 @@ Install Docker compose (apt get), [official ressource](https://docs.docker.com/c
 After Docker Engine/compose installation, on linux, do not forget the post-installation [steps](https://docs.docker.com/engine/install/linux-postinstall/)
 1. Git clone this repository or create a new one (name of your choice)
 2. Open terminal, cd into custom directory, make sure `docker-compose.yml` file is present (copy it in if needed)  
-https://github.com/matthieuvion/spark-cluster/blob/b2ac2c40562200deaaa0fda5a1c6a61a3b9d5102/docker-compose.yml?plain=1  
+https://github.com/matthieuvion/spark-cluster/blob/6e5cb821a7236de94d005fce9168abe07eb306c7/docker-compose.yml#L1-L30
+
+Basically, the yml file tells Docker compose how to run the Spark Master, Worker, Jupyterlab. You will have access to your local disk/current working directory every time you run this command.
+
+3. Run docker compose
 ```
 cd my-directory
 docker compose up
 # or depending of your Docker Compose install:   
 docker-compose up
 ```
-Basically, the file tells Docker compose how to run the Spark Master, Worker, Jupyterlab. You will have access to your local disk/current working directory every time you run this command
-3. Run docker compose, it will automatically download the needed images (spark:3.3.1 for Master and Worker, pyspark-notebook for the JupyterLab interface) and run the whole thing.
+Docker compose will automatically download the needed images (spark:3.3.1 for Master and Worker, pyspark-notebook for the JupyterLab interface) and run the whole thing. The next times, it will only run them.  
 
 ### 3. Profit : JupyterLab interface, Spark cluster (standalone) mode 
 Jupyter lab interface : http://localhost:8888  
